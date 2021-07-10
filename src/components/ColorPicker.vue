@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Pixel color="white" :current="color == 'white' ? true : false" />
-    <Pixel color="lightblue" :current="color == 'lightblue' ? true : false" />
-    <Pixel color="blue" :current="color == 'blue' ? true : false" />
-    <Pixel color="darkblue" :current="color == 'darkblue' ? true : false" />
+    <Pixel isInColorPicker color="white" :current="color == 'white' ? true : false" />
+    <Pixel isInColorPicker color="lightblue" :current="color == 'lightblue' ? true : false" />
+    <Pixel isInColorPicker color="blue" :current="color == 'blue' ? true : false" />
+    <Pixel isInColorPicker color="darkblue" :current="color == 'darkblue' ? true : false" />
   </div>
 </template>
 <script>
@@ -13,6 +13,10 @@ export default {
   name: 'ColorPicker',
   components: {
     Pixel
+  },
+  props: {
+    color: String,
+
   }
 }
 </script>
