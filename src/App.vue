@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ColorPicker :color=color />
+    <Canvas />
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Canvas from './components/Canvas.vue'
+import ColorPicker from './components/ColorPicker.vue'
 
 export default {
   name: 'App',
+  data: function() {
+    return {
+      color: 'white'
+    }
+  },
   components: {
-    HelloWorld
+    Canvas,
+    ColorPicker
+  },
+  mounted() {
+    this.$root.$on('updatecolor', color => {
+      this.color = color
+    })
   }
 }
 </script>
